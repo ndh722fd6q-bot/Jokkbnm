@@ -1,24 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHADOW WORM PANEL</title>
+    <title>SHADOW WORM - DIRECT INJECT</title>
     <style>
-        body { background-color: #050505; color: #ff0000; font-family: monospace; text-align: center; padding: 20px; }
-        .panel { border: 2px solid #ff0000; border-radius: 10px; padding: 30px; display: inline-block; box-shadow: 0 0 15px #ff0000; }
-        .btn { background: #111; color: #ff0000; border: 1px solid #ff0000; padding: 15px 40px; margin: 10px; cursor: pointer; width: 250px; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        body { background-color: #050505; color: #ff0000; font-family: sans-serif; text-align: center; padding: 20px; }
+        .panel { border: 2px solid #ff0000; border-radius: 15px; padding: 25px; display: inline-block; background: black; box-shadow: 0 0 20px #ff0000; width: 90%; max-width: 400px; }
+        .btn { background: #111; color: #ff0000; border: 1px solid #ff0000; padding: 15px; margin: 10px 0; cursor: pointer; width: 100%; font-weight: bold; border-radius: 8px; transition: 0.3s; }
         .btn:hover { background: #ff0000; color: #000; box-shadow: 0 0 20px #ff0000; }
+        .loader { display: none; color: #00ff00; margin: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="panel">
-        <h1>[ SHADOW WORM PANEL ]</h1>
-        <p>Sensitivity: 1-7592-1142-1306-6638-084</p>
-        <hr>
-        <button class="btn" onclick="alert('AIMBOT 360: ACTIVE ✅')">Enable Aimbot</button><br>
-        <button class="btn" onclick="alert('BULLET TRACK: ACTIVE ✅')">Enable Bullet Track</button><br>
-        <button class="btn" onclick="alert('MAGIC BULLET: ACTIVE ✅')">Enable Magic Bullet</button>
+        <h1>SHADOW WORM VIP</h1>
+        <p style="color: #888;">Direct Injection System</p>
+        <div id="loader" class="loader">جاري الحماية والحقن...</div>
+        
+        <button class="btn" onclick="inject('ig')">تفعيل AIMBOT + فتح اللعبة</button>
+        <button class="btn" onclick="inject('korean')">تفعيل MAGIC BULLET + فتح اللعبة</button>
+        
+        <p style="font-size: 12px; color: #555;">ملاحظة: تأكد من تشغيل اللعبة في الخلفية</p>
     </div>
+
+    <script>
+    function inject(version) {
+        // إظهار نص الحقن لإعطاء طابع احترافي
+        document.getElementById('loader').style.display = 'block';
+        
+        setTimeout(function() {
+            document.getElementById('loader').style.display = 'none';
+            
+            // روابط فتح اللعبة (URL Schemes)
+            let gameUrl = (version === 'ig') ? "tgp-pb:launch" : "pbgkorea:";
+            
+            // فتح اللعبة مباشرة
+            window.location.href = gameUrl;
+        }, 1500);
+    }
+    </script>
 </body>
 </html>

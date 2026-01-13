@@ -1,41 +1,56 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHADOW WORM - DIRECT INJECT</title>
+    <title>SHADOW WORM VIP - MINI PACK</title>
     <style>
-        body { background-color: #050505; color: #ff0000; font-family: sans-serif; text-align: center; padding: 20px; }
-        .panel { border: 2px solid #ff0000; border-radius: 15px; padding: 25px; display: inline-block; background: black; box-shadow: 0 0 20px #ff0000; width: 90%; max-width: 400px; }
-        .btn { background: #111; color: #ff0000; border: 1px solid #ff0000; padding: 15px; margin: 10px 0; cursor: pointer; width: 100%; font-weight: bold; border-radius: 8px; transition: 0.3s; }
-        .btn:hover { background: #ff0000; color: #000; box-shadow: 0 0 20px #ff0000; }
-        .loader { display: none; color: #00ff00; margin: 10px; font-weight: bold; }
+        body { background-color: #050505; color: #00ff00; font-family: 'Courier New', Courier, monospace; text-align: center; padding: 20px; }
+        .panel { border: 2px solid #00ff00; border-radius: 15px; padding: 25px; display: inline-block; background: black; box-shadow: 0 0 20px #00ff00; width: 90%; max-width: 400px; }
+        .btn { background: #111; color: #00ff00; border: 1px solid #00ff00; padding: 15px; margin: 10px 0; cursor: pointer; width: 100%; font-weight: bold; border-radius: 8px; transition: 0.3s; text-transform: uppercase; }
+        .btn:hover { background: #00ff00; color: #000; box-shadow: 0 0 20px #00ff00; }
+        input { padding: 12px; width: 85%; border-radius: 5px; border: 1px solid #00ff00; background: #000; color: #00ff00; text-align: center; margin-bottom: 15px; outline: none; }
+        .status-msg { font-size: 14px; color: #888; margin-top: 10px; }
     </style>
 </head>
 <body>
     <div class="panel">
         <h1>SHADOW WORM VIP</h1>
-        <p style="color: #888;">Direct Injection System</p>
-        <div id="loader" class="loader">جاري الحماية والحقن...</div>
+        <p style="color: #00ff00; font-size: 12px;">CORE VERSION: 4.2 MINI PACK</p>
         
-        <button class="btn" onclick="inject('ig')">تفعيل AIMBOT + فتح اللعبة</button>
-        <button class="btn" onclick="inject('korean')">تفعيل MAGIC BULLET + فتح اللعبة</button>
-        
-        <p style="font-size: 12px; color: #555;">ملاحظة: تأكد من تشغيل اللعبة في الخلفية</p>
+        <div id="login-section">
+            <input type="text" id="licenseInput" placeholder="ENTER LICENSE KEY">
+            <button class="btn" onclick="checkLicense()">ACTIVATE SYSTEM</button>
+        </div>
+
+        <div id="hack-section" style="display: none;">
+            <p style="color: #00ff00;">SYSTEM STATUS: ACTIVE ✅</p>
+            <button class="btn" onclick="inject('korean', 'AIM-160')">INJECT AIMBOT 160°</button>
+            <button class="btn" onclick="inject('korean', 'MAGIC-BULLET')">INJECT MAGIC BULLET</button>
+            <div id="loader" style="display:none; color: #fff;">INJECTING DATA...</div>
+        </div>
     </div>
 
     <script>
-    function inject(version) {
-        // إظهار نص الحقن لإعطاء طابع احترافي
+    function checkLicense() {
+        const key = document.getElementById("licenseInput").value;
+        const validKeys = ["SHADOW-MINI", "JOK-V42", "ADMIN-77"]; // Put your keys here
+        
+        if (validKeys.includes(key)) {
+            document.getElementById("login-section").style.display = "none";
+            document.getElementById("hack-section").style.display = "block";
+        } else {
+            alert("INVALID LICENSE KEY!");
+        }
+    }
+
+    function inject(version, type) {
         document.getElementById('loader').style.display = 'block';
         
         setTimeout(function() {
             document.getElementById('loader').style.display = 'none';
-            
-            // روابط فتح اللعبة (URL Schemes)
-            let gameUrl = (version === 'ig') ? "tgp-pb:launch" : "pbgkorea:";
-            
-            // فتح اللعبة مباشرة
+            // Specific URL Scheme for Korean Version 64-bit
+            let gameUrl = "pbgkorea:"; 
             window.location.href = gameUrl;
         }, 1500);
     }
